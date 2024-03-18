@@ -1,10 +1,12 @@
 ﻿#include <iostream>
 
+using namespace std;		// 더이상 std::를 안써도 된다.
+
 int main(void) 
 {
-	// std : 이름공간(namespace)
+	// std : 이름공간(namespace), 변ㅅ의 중복을 막기 위함.
 	// cout : 출력 객체
 	// endl : 줄바꿈(개행) 객체
-	std::cout << "hello world" << std::endl;
+	cout << "hello world" << endl;
 	return 0;
 }
