@@ -2,13 +2,14 @@
 
 int main(void) 
 {
-	int arr[4];
+	int arr[4] = { 10, 20, 30, 40 };
 	char str[4];
 
-	// 4바이트 차이(x86으로 설정하면 더 좋아요)
-	printf("%d %d\n", &arr[0], &arr[1]);
-	// 위의 코드와 결과가 같다. (배열의 이름은 주소값)
-	printf("%d %d\n", arr, arr+1);
+	// 두 코드의 결과는 같다.
+	printf("%d %d\n", *(&arr[0]), *(&arr[1]));
+	printf("%d %d\n", *(arr), *(arr + 1));
+
+	// &를 쓰는 참조 연산이라고 하고 *을 쓰는 연산은 역참조 연산이라고 한다.
 	
 	return 0;
 }
