@@ -4,7 +4,6 @@
 void erase(int* _arr, int _length) {
 	for (int i = 0; i < _length; i++)
 		_arr[i] = 0;
-
 }
 
 int main(void) 
