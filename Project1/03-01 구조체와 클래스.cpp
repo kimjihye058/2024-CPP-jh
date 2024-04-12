@@ -11,6 +11,11 @@ public:
 		hakbun_ = hakbun;
 		name_ = name;
 	}
+	// 생성자 오버로딩
+	Student() {
+		hakbun_ = 2121;
+		name_ = "JWP";
+	}
 private :
 	int hakbun_;
 	string name_;
@@ -20,5 +25,6 @@ private :
 void main(void) {
 
 	Student juyoung = Student(2115, "윤주영");
+	Student jwp = Student();
 
 }
