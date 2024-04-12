@@ -10,6 +10,8 @@ public:
 	Student(int hakbun, string name) 
 		: hakbun_(hakbun), name_(name)
 	{
+		// this: 객체 자기자신을 가리키는 포인터
+		this->hakbun_ = hakbun;
 	}
 	// 생성자 오버로딩
 	Student() 
@@ -36,9 +38,10 @@ void main(void) {
 		{2104, "위즈덤"}
 	};
 
-	for (int i = 0; i < 3; i++) 
+	for (int i = 0; i < 3; i++)
 		stu[i].print();
-	
+
 
 	// 동적할당된 메모리 삭제
-	delete []stu;
+	delete[]stu;
+}
