@@ -19,10 +19,14 @@ public:
 
 	Student() {}
 
-	//TODO : 얕은복사로 인해 같은 주소의 공간을 두 번 삭제 시도
+
 	Student(const Student& rhs)
-		: hakbun_(rhs.hakbun_), name_(rhs.name_)
+		: hakbun_(rhs.hakbun_)
 	{
+		// 문자열 + 1 : 널 문자 공간을 위해 +1
+		name_ = new char[strlen(rhs.name_) + 1];
+		// 동적할당된 공간에 "윤주영"(name)을 복사한다.
+		strcpy(name_, rhs.name_);
 		cout << "복사생성자 호출" << endl;
 	}
 
