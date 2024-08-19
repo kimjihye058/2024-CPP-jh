@@ -43,6 +43,7 @@ public:
 		cout << "인권존재여부 " << right_ << endl;
 	}
 
+	// TODO : 정적 바인딩(C++)을 동적 바인딩(JAVA)으로 고치기
 	void bark() {
 		cout << "톡톡" << endl;
 	}
@@ -52,7 +53,7 @@ public:
 	}
 
 	void eat() {
-		cout << "얌얌" << endl;
+		cout << "냠냠" << endl;
 	}
 
 private:
@@ -62,17 +63,17 @@ private:
 void main(void)
 {
 	Animal* ani = new Animal("정민레이디", 18);		// 동적할당
-	
 	ani->bark();
 	ani->sleep();
 	ani->eat();
+	delete ani;		// 할당 해제
 
-	Human* hum = new Human("지우맨", 18, true);		// 동적할당
-	hum->bark();
-	hum->sleep();
-	hum->eat();
-
-	delete hum;		// 할당 해제
+	// ani의 자료형은 Animal*
+	ani = new Human("지우맨", 18, true);		// 동적할당
+	// 정적 바인딩으로 인해 Animal의 멤버함수가 호출된다.
+	ani->bark();
+	ani->sleep();
+	ani->eat();
 	delete ani;		// 할당 해제
 
 }
