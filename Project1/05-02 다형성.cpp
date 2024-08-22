@@ -16,15 +16,15 @@ public:		// 멤버 함수
 		cout << "나이 " << age_ << endl;
 	}
 
-	void bark() {
+	virtual void bark() {		// 부모에 가상함수(virtual) 선언
 		cout << "잘 짖는다." << endl;
 	}
 
-	void sleep() {
+	virtual void sleep() {
 		cout << "잘 잔다." << endl;
 	}
 
-	void eat() {
+	virtual void eat() {
 		cout << "잘 먹는다." << endl;
 	}
 
@@ -44,6 +44,8 @@ public:
 	}
 
 	// TODO : 정적 바인딩(C++)을 동적 바인딩(JAVA)으로 고치기
+	// 정적 바인딩 -> 컴파일 시간에 어떤 함수를 사용할 지 결정
+	// 동적 바인딩 -> 런타임(실행) 시간에 어떤 함수를 사용할 지 결정
 	void bark() {
 		cout << "톡톡" << endl;
 	}
