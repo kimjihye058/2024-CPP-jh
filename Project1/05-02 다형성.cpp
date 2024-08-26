@@ -15,6 +15,10 @@ public:		// 멤버 함수
 		cout << "이름 " << name_ << endl;
 		cout << "나이 " << age_ << endl;
 	}
+	virtual ~Animal() 
+	{
+		cout << "Animal 소멸자" << endl;
+	}
 
 	virtual void bark() {		// 부모에 가상함수(virtual) 선언
 		cout << "잘 짖는다." << endl;
@@ -41,6 +45,11 @@ public:
 		: Animal(name, age), right_(right)
 	{
 		cout << "인권존재여부 " << right_ << endl;
+	}
+	
+	virtual ~Human() 
+	{
+		cout << "Human 소멸자" << endl;
 	}
 
 	// TODO : 정적 바인딩(C++)을 동적 바인딩(JAVA)으로 고치기
