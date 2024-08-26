@@ -20,17 +20,11 @@ public:		// 멤버 함수
 		cout << "Animal 소멸자" << endl;
 	}
 
-	virtual void bark() {		// 부모에 가상함수(virtual) 선언
-		cout << "잘 짖는다." << endl;
-	}
-
-	virtual void sleep() {
-		cout << "잘 잔다." << endl;
-	}
-
-	virtual void eat() {
-		cout << "잘 먹는다." << endl;
-	}
+	// 실체가 없으므로 순수가상함수로 처리
+	// 자식 클래스에서 정의해야함
+	virtual void bark() = 0;
+	virtual void sleep() = 0;
+	virtual void eat() = 0;
 
 private:		// 멤버 변수
 	string name_;
@@ -73,6 +67,7 @@ private:
 
 void main(void)
 {
+	// 추상클래스(순수가상함수가 있는)는 객체를 생성할 수 없다
 	Animal* ani = new Animal("정민레이디", 18);		// 동적할당
 	ani->bark();
 	ani->sleep();
