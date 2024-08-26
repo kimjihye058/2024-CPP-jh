@@ -46,15 +46,15 @@ public:
 	// TODO : 정적 바인딩(C++)을 동적 바인딩(JAVA)으로 고치기
 	// 정적 바인딩 -> 컴파일 시간에 어떤 함수를 사용할 지 결정
 	// 동적 바인딩 -> 런타임(실행) 시간에 어떤 함수를 사용할 지 결정
-	void bark() {
+	void bark() override{
 		cout << "톡톡" << endl;
 	}
 
-	void sleep() {
+	void sleep() override{
 		cout << "쿨쿨" << endl;
 	}
 
-	void eat() {
+	void eat() override{
 		cout << "냠냠" << endl;
 	}
 
@@ -68,7 +68,7 @@ void main(void)
 	ani->bark();
 	ani->sleep();
 	ani->eat();
-	delete ani;		// 할당 해제
+	delete ani;		// 할당 해제 (하나의 변수로 여러 객체를 다룰 수 있음)
 
 	// ani의 자료형은 Animal*
 	ani = new Human("지우맨", 18, true);		// 동적할당
