@@ -1,5 +1,6 @@
 ﻿#include <iostream>
 #include <string>
+#include <stdlib.h>
 
 using namespace std;
 
@@ -95,16 +96,40 @@ void main(void)
 	Clothes* player = new Hanbok("곤룡포", 100, 10, 9999, 0, 0);
 	Clothes* friendy = new Kimono("나마에와", 10, 1, 9, 1);
 	
-	player->show();
-	cout << endl;
-	friendy->show();
+	int choice;
 
-	cout << "====================================" << endl;
-	cout << "1. 공격" << endl;
-	cout << "2. 특수 공격1" << endl;
-	cout << "3. 특수 공격2" << endl;
-	cout << "4. 도망" << endl;
+	while (true) {
+		system("cls");	// cmd에서 cleaer되는 것
+		player->show();
+		cout << endl << endl;
+		friendy->show();
 
+		cout << "====================================" << endl;
+		cout << "1. 공격" << endl;
+		cout << "2. 특수 공격1" << endl;
+		cout << "3. 특수 공격2" << endl;
+		cout << "4. 도망" << endl;
+
+		cin >>choice;
+
+		switch (choice) {
+			case 1:
+				player->attack(friendy);
+				break;
+			case 2:
+				cout << "특수 공격1" << endl;
+				break;
+			case 3:
+				cout << "특수 공격2" << endl;
+				break;
+			case 4:
+				cout << "도망" << endl;
+				break;
+			default:
+				break;
+		}
+	}
+	
 	delete friendy;
 	delete player;
 
