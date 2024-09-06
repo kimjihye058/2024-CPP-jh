@@ -17,7 +17,11 @@ public:		// 멤버함수
 		cout << "아름다움: " << beauty_ << endl;
 	}
 
-private:	// 멤버변수
+	// 자식 클래스에서 구현하겠다.
+	virtual void attack(Clothes* target) = 0;		// 다형성 활용(한복, 기모노, 치파오를 가리킴)
+	// 포인터를 쓰지 않으면 지역변수를 가리킬 수 없음
+
+public:	// 멤버변수
 	string name_;
 	int price_;
 	int making_time_;
@@ -38,6 +42,10 @@ public:
 		cout << "저고리: " << jugori_ << endl;
 	}
 
+	void attack(Clothes* target) {
+		target->beauty_ -= beauty_;
+	}
+
 private:
 	int norigae_;			// 노리개
 	int jugori_;			// 저고리
@@ -52,6 +60,10 @@ public:
 	{
 		Clothes::show();
 		cout << "오비: " << belt_ << endl;
+	}
+
+	void attack(Clothes* target) {
+		target->beauty_ -= beauty_;
 	}
 
 private:
@@ -70,6 +82,10 @@ public:
 		cout << "자수: " << embroidery_ << endl;
 	}
 
+	void attack(Clothes* target) {
+		target->beauty_ -= beauty_;
+	}
+
 private:
 	int embroidery_;		// 자수
 };
@@ -82,6 +98,12 @@ void main(void)
 	player->show();
 	cout << endl;
 	friendy->show();
+
+	cout << "====================================" << endl;
+	cout << "1. 공격" << endl;
+	cout << "2. 특수 공격1" << endl;
+	cout << "3. 특수 공격2" << endl;
+	cout << "4. 도망" << endl;
 
 	delete friendy;
 	delete player;
