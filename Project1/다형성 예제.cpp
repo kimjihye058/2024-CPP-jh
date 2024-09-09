@@ -27,6 +27,7 @@ public:	// 멤버변수
 	int price_;
 	int making_time_;
 	int beauty_;
+	int attackcount_;
 
 };
 
@@ -34,7 +35,9 @@ class Hanbok : public Clothes {
 public:
 	Hanbok(string name, int price, int making_time, int beauty, int norigae, int jugori)
 		: Clothes(name, price, making_time, beauty), norigae_(norigae), jugori_(jugori) 
-	{}
+	{
+		attackcount_ = 0;
+	}
 
 	void show()
 	{
@@ -43,8 +46,15 @@ public:
 		cout << "저고리: " << jugori_ << endl;
 	}
 
-	void attack(Clothes* target) {
-		target->beauty_ -= beauty_;
+	void attack(Clothes* target) override 
+	{
+		attackcount_++;
+		if (attackcount_ % 3 == 0) {	// 프리티컬 공격: 매 3번째 공격에 특수 효과 적용
+			target->beauty_ -= beauty_ * 2;  // 예: 데미지 2배
+		}
+		else {
+			target->beauty_ -= beauty_;
+		}
 	}
 
 private:
@@ -63,7 +73,8 @@ public:
 		cout << "오비: " << belt_ << endl;
 	}
 
-	void attack(Clothes* target) {
+	void attack(Clothes* target)  override 
+	{
 		target->beauty_ -= beauty_;
 	}
 
@@ -83,7 +94,8 @@ public:
 		cout << "자수: " << embroidery_ << endl;
 	}
 
-	void attack(Clothes* target) {
+	void attack(Clothes* target)  override 
+	{
 		target->beauty_ -= beauty_;
 	}
 
