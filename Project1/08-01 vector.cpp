@@ -26,14 +26,16 @@ void main(void)
 	cy[1] = "석진";
 
 	// 요소 갯수(size)
-	cout << "☆☆☆☆☆☆" << cy[0] << "의 남자들 ☆☆☆☆☆☆" << endl;
+	cout << "☆☆☆☆☆☆ " << cy[0] << "의 남자들 ☆☆☆☆☆☆" << endl;
 	for (int i = 1; i < cy.size(); i++)
 		cout << cy[i] << endl;
 
 	// 마지막 요소 삭제
 	cy.pop_back();
-	cout << "☆☆☆☆☆☆" << cy[0] << "의 남자들 ☆☆☆☆☆☆" << endl;
-	for (int i = 1; i < cy.size(); i++)
-		cout << cy[i] << endl;
+	cout << "☆☆☆☆☆☆ " << cy[0] << "의 남자들 ☆☆☆☆☆☆" << endl;
+
+	vector<string>::iterator iter;
+	for (iter= cy.begin(); iter != cy.end(); iter++)
+		cout << *iter << endl;	// iter는 포인터다.
 
 }
