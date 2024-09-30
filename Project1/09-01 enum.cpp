@@ -11,7 +11,7 @@ enum FoodStyle {
 int main(void)
 {
     // 0 : 한식, 1 : 일식, 2 : 중식
-    int style = FoodStyle::KOREAN;
+    FoodStyle style = FoodStyle::KOREAN;
 
     switch (style)
     {
