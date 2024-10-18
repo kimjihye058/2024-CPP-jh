@@ -3,12 +3,14 @@
 using namespace sf;
 using namespace std;
 
-const int WINDOW_WIDTH = 1200;
-const int WINDOW_HEIGHT = 800;
+enum App {
+	WIDTH = 1200, 
+	HEIGHT = 800
+};
 
 void main(void)
 {
-	RenderWindow window(VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), "Project");
+	RenderWindow window(VideoMode(App::WIDTH, App::HEIGHT), "Project");
 
 	while (window.isOpen())
 	{
@@ -20,7 +22,7 @@ void main(void)
 		}
 		RectangleShape player;
 		player.setSize(Vector2f(200.f, 200.f));
-		player.setPosition((1200-200)/2, (800-200)/2);
+		player.setPosition((App::WIDTH - player.getSize().x)/2, (App::HEIGHT - player.getSize().y) / 2);
 		player.setFillColor(Color::Magenta);
 
 		window.clear(Color::White);
